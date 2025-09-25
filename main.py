@@ -1,6 +1,5 @@
 import pandas as pd
 import requests
-import sqlite3
 import os
 import json
 from sqlachemy import create_engine
