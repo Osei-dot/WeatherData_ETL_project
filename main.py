@@ -22,10 +22,14 @@ def extract_data(api_urls):
         response = requests.get(url)
         if response.status_code == 200:
             data = response.json()
-            with open(RAW_FILE_PATH, 'a') as f:
-                json.dump(data, f, indent=4)
+            all_data.append(data)
         else:
             print(f"API request failed for {url} with status code {response.status_code}")
+    
+    with open(RAW_FILE_PATH, 'w') as f:
+        json.dump(all_data,f,indent=4)
+
+        
     return RAW_FILE_PATH
 
 WeatherData = extract_data(Weather_API_URL)
