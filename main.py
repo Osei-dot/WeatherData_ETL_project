@@ -1,6 +1,8 @@
 import pandas as pd
 import requests
 import sqlite3
+import os
+import json
 
 #Data Extraction
 Ghana_Weather_call="https://api.openweathermap.org/data/2.5/weather?lat=5.5571096&lon=-0.2012376&appid=1c5002dfe0a4a596985100efecc3338e"
@@ -10,7 +12,9 @@ Benin_Weather_call="https://api.openweathermap.org/data/2.5/weather?lat=6.367695
 Ginuea_Weather_call="https://api.openweathermap.org/data/2.5/weather?lat=10.6617959&lon=-14.6024392&appid=1c5002dfe0a4a596985100efecc3338e"
 CoteDivoire_Weather_call="https://api.openweathermap.org/data/2.5/weather?lat=6.8200066&lon=-5.2776034&appid=1c5002dfe0a4a596985100efecc3338e"
 
-
+Data_Dir= "/home/ubuntu_gelsc/Weather_ETL_Project"
+RAW_FILE_PATH =os.path.join(Data_Dir, "rawdata.json")  
+os.makedirs(Data_Dir, exist_ok=True)
 Weather_API_URL= [Ghana_Weather_call, Nigeria_Weather_call, Togo_Weather_call, Benin_Weather_call, Ginuea_Weather_call, CoteDivoire_Weather_call]
 def extract_data(api_urls):
     all_data = []
@@ -18,12 +22,13 @@ def extract_data(api_urls):
         response = requests.get(url)
         if response.status_code == 200:
             data = response.json()
-            all_data.append(data)
+            with open(RAW_FILE_PATH, 'a') as f:
+                json.dump(data, f, indent=4)
         else:
             print(f"API request failed for {url} with status code {response.status_code}")
-    return pd.DataFrame(all_data)
+    return RAW_FILE_PATH
 
-df = extract_data(Weather_API_URL)
-print(df)
+WeatherData = extract_data(Weather_API_URL)
+
 
 
