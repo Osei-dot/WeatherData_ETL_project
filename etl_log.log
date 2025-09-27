@@ -1,0 +1,4 @@
+[2025-09-27 02:03:22,875] - __main__  - Starting data extraction process from API
+[2025-09-27 02:03:25,627] - __main__  - Extracting data from API......
+[2025-09-27 02:03:28,416] - __main__  - Loading data into the database
+[2025-09-27 02:03:28,606] - __main__  - Data loaded successfully into the database

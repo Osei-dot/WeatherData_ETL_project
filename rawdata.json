@@ -1,1 +1,272 @@
-[]
+[
+    {
+        "coord": {
+            "lon": -0.2012,
+            "lat": 5.5571
+        },
+        "weather": [
+            {
+                "id": 801,
+                "main": "Clouds",
+                "description": "few clouds",
+                "icon": "02n"
+            }
+        ],
+        "base": "stations",
+        "main": {
+            "temp": 298.34,
+            "feels_like": 299.37,
+            "temp_min": 298.34,
+            "temp_max": 298.34,
+            "pressure": 1011,
+            "humidity": 94,
+            "sea_level": 1011,
+            "grnd_level": 1008
+        },
+        "visibility": 10000,
+        "wind": {
+            "speed": 3.09,
+            "deg": 190
+        },
+        "clouds": {
+            "all": 20
+        },
+        "dt": 1758938602,
+        "sys": {
+            "type": 1,
+            "id": 1126,
+            "country": "GH",
+            "sunrise": 1758952144,
+            "sunset": 1758995665
+        },
+        "timezone": 0,
+        "id": 2306104,
+        "name": "Accra",
+        "cod": 200
+    },
+    {
+        "coord": {
+            "lon": 7.4893,
+            "lat": 9.0643
+        },
+        "weather": [
+            {
+                "id": 803,
+                "main": "Clouds",
+                "description": "broken clouds",
+                "icon": "04n"
+            }
+        ],
+        "base": "stations",
+        "main": {
+            "temp": 296.29,
+            "feels_like": 297.06,
+            "temp_min": 296.29,
+            "temp_max": 296.29,
+            "pressure": 1012,
+            "humidity": 92,
+            "sea_level": 1012,
+            "grnd_level": 958
+        },
+        "visibility": 10000,
+        "wind": {
+            "speed": 0.28,
+            "deg": 66,
+            "gust": 0.38
+        },
+        "clouds": {
+            "all": 61
+        },
+        "dt": 1758938602,
+        "sys": {
+            "type": 1,
+            "id": 1173,
+            "country": "NG",
+            "sunrise": 1758950322,
+            "sunset": 1758993796
+        },
+        "timezone": 3600,
+        "id": 2352778,
+        "name": "Abuja",
+        "cod": 200
+    },
+    {
+        "coord": {
+            "lon": 1.2517,
+            "lat": 6.158
+        },
+        "weather": [
+            {
+                "id": 802,
+                "main": "Clouds",
+                "description": "scattered clouds",
+                "icon": "03n"
+            }
+        ],
+        "base": "stations",
+        "main": {
+            "temp": 299.16,
+            "feels_like": 299.16,
+            "temp_min": 299.16,
+            "temp_max": 299.16,
+            "pressure": 1011,
+            "humidity": 89,
+            "sea_level": 1011,
+            "grnd_level": 1009
+        },
+        "visibility": 10000,
+        "wind": {
+            "speed": 3.6,
+            "deg": 210
+        },
+        "clouds": {
+            "all": 40
+        },
+        "dt": 1758938603,
+        "sys": {
+            "type": 1,
+            "id": 1218,
+            "country": "TG",
+            "sunrise": 1758951799,
+            "sunset": 1758995312
+        },
+        "timezone": 0,
+        "id": 2364049,
+        "name": "Station M\u00e9t\u00e9o",
+        "cod": 200
+    },
+    {
+        "coord": {
+            "lon": 2.4253,
+            "lat": 6.3677
+        },
+        "weather": [
+            {
+                "id": 802,
+                "main": "Clouds",
+                "description": "scattered clouds",
+                "icon": "03n"
+            }
+        ],
+        "base": "stations",
+        "main": {
+            "temp": 299.13,
+            "feels_like": 299.13,
+            "temp_min": 299.13,
+            "temp_max": 299.13,
+            "pressure": 1011,
+            "humidity": 89,
+            "sea_level": 1011,
+            "grnd_level": 1010
+        },
+        "visibility": 10000,
+        "wind": {
+            "speed": 4.63,
+            "deg": 210
+        },
+        "clouds": {
+            "all": 40
+        },
+        "dt": 1758938603,
+        "sys": {
+            "type": 1,
+            "id": 1119,
+            "country": "BJ",
+            "sunrise": 1758951519,
+            "sunset": 1758995029
+        },
+        "timezone": 3600,
+        "id": 2394819,
+        "name": "Cotonou",
+        "cod": 200
+    },
+    {
+        "coord": {
+            "lon": -14.6024,
+            "lat": 10.6618
+        },
+        "weather": [
+            {
+                "id": 804,
+                "main": "Clouds",
+                "description": "overcast clouds",
+                "icon": "04n"
+            }
+        ],
+        "base": "stations",
+        "main": {
+            "temp": 298.85,
+            "feels_like": 299.75,
+            "temp_min": 298.85,
+            "temp_max": 298.85,
+            "pressure": 1012,
+            "humidity": 87,
+            "sea_level": 1012,
+            "grnd_level": 1011
+        },
+        "visibility": 10000,
+        "wind": {
+            "speed": 0.85,
+            "deg": 226,
+            "gust": 1.09
+        },
+        "clouds": {
+            "all": 89
+        },
+        "dt": 1758938604,
+        "sys": {
+            "country": "GN",
+            "sunrise": 1758955635,
+            "sunset": 1758999085
+        },
+        "timezone": 0,
+        "id": 2420056,
+        "name": "Kamsar",
+        "cod": 200
+    },
+    {
+        "coord": {
+            "lon": -5.2776,
+            "lat": 6.82
+        },
+        "weather": [
+            {
+                "id": 804,
+                "main": "Clouds",
+                "description": "overcast clouds",
+                "icon": "04n"
+            }
+        ],
+        "base": "stations",
+        "main": {
+            "temp": 295.85,
+            "feels_like": 296.63,
+            "temp_min": 295.85,
+            "temp_max": 296.09,
+            "pressure": 1012,
+            "humidity": 94,
+            "sea_level": 1012,
+            "grnd_level": 988
+        },
+        "visibility": 8000,
+        "wind": {
+            "speed": 2.06,
+            "deg": 160
+        },
+        "clouds": {
+            "all": 100
+        },
+        "dt": 1758938604,
+        "sys": {
+            "type": 2,
+            "id": 47672,
+            "country": "CI",
+            "sunrise": 1758953371,
+            "sunset": 1758996874
+        },
+        "timezone": 0,
+        "id": 2279755,
+        "name": "Yamoussoukro",
+        "cod": 200
+    }
+]
