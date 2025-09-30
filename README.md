@@ -48,6 +48,7 @@ Weather_ETL_Project/
 
 1. Create and Activate Virtual Environment
 python3 -m venv airflow_env
+
 source airflow_env/bin/activate
 
 3. Install Dependencies
