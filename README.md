@@ -119,3 +119,10 @@ Add alerting and monitoring for pipeline failures
 👨‍💻 Author
 
 Dickson Osei – [osei-dot](https://github.com/Osei-dot)
+
+<img width="1623" height="897" alt="image" src="https://github.com/user-attachments/assets/6dc35f65-1462-4d66-82a7-ecb6704a0f90" />
+<img width="1331" height="378" alt="image" src="https://github.com/user-attachments/assets/6c91469e-81e5-4794-af65-58f05324e25f" />
+<img width="1150" height="651" alt="image" src="https://github.com/user-attachments/assets/a901a251-6f75-4fd5-a372-e39dd5188cd1" />
+
+
+
