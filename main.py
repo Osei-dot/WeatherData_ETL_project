@@ -3,6 +3,8 @@ import requests
 import os
 import json
 from sqlalchemy import create_engine
+
+
 from datetime import datetime
 
 #------------------------logging-------------------------------#
@@ -14,12 +16,18 @@ logger.setLevel(logging.DEBUG)
 stream_handler=logging.StreamHandler(sys.stdout)
 logger.addHandler(stream_handler)
 file_handler=logging.FileHandler('etl_log.log')
-file_handler.setLevel(logging.ERROR)
+file_handler.setLevel(logging.INFO)
 logger.addHandler(file_handler)
+
+error_file_handler=logging.FileHandler('error_log.log')
+error_file_handler.setLevel(logging.ERROR)
+logger.addHandler(error_file_handler)
+
 
 formatter=logging.Formatter('[%(asctime)s] - %(name)s  - %(message)s')
 file_handler.setFormatter(formatter)
 stream_handler.setFormatter(formatter)
+error_file_handler.setFormatter(formatter)
 
 #----------------------Data Extraction-----------------------------#
 logger.info("Starting data extraction process from API") 
@@ -55,15 +63,15 @@ def extract_data(api_urls):
 
         
     return RAW_FILE_PATH
-     
-if any(r.status_code == 200 for r in [requests.get(url) for url in Weather_API_URL]):
-   try:
+
+def execute_extraction(api_urls):
+
+    if any(r.status_code == 200 for r in [requests.get(url) for url in api_urls]):
         logger.info("Extracting data from API......")
-        WeatherData = extract_data(Weather_API_URL)
-   except:
-         raise logger.error("Error during data extraction")
-else:
-    logger.error("No successful API responses received.")
+        return extract_data(Weather_API_URL)
+    else:
+        logger.error("No successful API responses received.")
+        raise ValueError("All API requests failed.")
 
 
 #..............................................................#
@@ -76,14 +84,14 @@ def transform_data(RAW_FILE_PATH: str):
     records = []
     for entry in data:
         record = {
-        "Date":datetime.now(),
+        "Date":datetime.now().strftime("%Y-%m-%d %H:%M"),
         "country":entry["sys"]["country"],
         "city":entry["name"],
         "weather_main":entry["weather"][0]["main"],
         "weather_description":entry["weather"][0]["description"],
-        "temp(c)":entry["main"]["temp"]-273.15,  # Convert Kelvin to Celsius
-        "feels_like(C)":entry["main"]["feels_like"]-273.15,  # Convert Kelvin to Celsius
-        "humidity":entry["main"]["humidity"],
+        "temp(c)": round(entry["main"]["temp"]-273.15, 2),  # Convert Kelvin to Celsius, 2 decimal places
+        "feels_like(C)":round(entry["main"]["feels_like"]-273.15, 2),  # Convert Kelvin to Celsius, 2 decimal places
+        "humidity(%)":entry["main"]["humidity"],
         "wind_speed":entry["wind"]["speed"] 
 
         }
@@ -92,10 +100,20 @@ def transform_data(RAW_FILE_PATH: str):
     df = pd.DataFrame(records)
     logger.info("Loading data into the database")
     try:
-        engine = Create_engine("postgresql://postgres:postgres@localhost:5432/WeatherDB")
-        df.to_sql('WeatherData', engine, if_exists='replace', index=False)
+        engine = create_engine("postgresql+psycopg2://postgres:postgres@172.25.128.1:5432/Today_Weather_Data")
+        df.to_sql("TodayWeather", con=engine, if_exists="replace", index=False)
     except Exception as e:
         logger.error(f"Error during data loading to postgress: {e}")
+    else:
+        logger.info("Data loaded successfully into the database")
+
+#ETL process........................................................
+def etl_process():
+
+    return transform_data(RAW_FILE_PATH)
+
+if __name__ == "__main__":
+    etl_process()
 
 
 
